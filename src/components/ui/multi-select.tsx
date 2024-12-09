@@ -14,7 +14,7 @@ import {
 import { Check } from "lucide-react";
 
 type MultiSelectContextValue = {
-  value?: string[];
+  value?: string[] | null;
   onValueChange?: (value: string[]) => void;
 };
 
@@ -53,8 +53,7 @@ export const MultiSelect = ({
       }}
     >
       <SelectPrimitive.Root
-        // value always to be undefined
-        value={undefined}
+        value={value ? JSON.stringify(value) : undefined}
         onValueChange={handleValueChange}
         {...props}
       >
