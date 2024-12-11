@@ -37,6 +37,8 @@ export const MultiSelect = ({
   children,
   ...props
 }: MultiSelectProps) => {
+  const randomKey = Math.random().toString();
+
   const handleValueChange = (newValue: string) => {
     const newValues = value?.includes(newValue)
       ? value.filter((v) => v !== newValue)
@@ -53,7 +55,7 @@ export const MultiSelect = ({
       }}
     >
       <SelectPrimitive.Root
-        value={value ? JSON.stringify(value) : undefined}
+        value={randomKey}
         onValueChange={handleValueChange}
         {...props}
       >
